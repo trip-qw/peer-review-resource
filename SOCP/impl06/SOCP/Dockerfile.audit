@@ -1,0 +1,21 @@
+# Base image
+FROM python:3.11-slim-bookworm
+
+# Create a low-privilege user
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    strace inotify-tools iproute2 net-tools procps busybox && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN useradd -ms /bin/bash auditor
+USER auditor
+WORKDIR /home/auditor/app
+
+# Copy project files
+COPY --chown=auditor:auditor . .
+
+# Install Python dependencies
+RUN if [ -f requirements.txt ]; then \
+        pip install --no-cache-dir -r requirements.txt || true; \
+    elif [ -f requirements ]; then \
+        pip install --no-cache-dir -r requirements || true; \
+    fi
