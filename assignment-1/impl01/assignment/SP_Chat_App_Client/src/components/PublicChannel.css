@@ -1,0 +1,29 @@
+.public-channel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.channel-desc {
+  font-size: 12px;
+  color: #999;
+  margin-left: 10px;
+}
+
+.message.own .message-header .message-sender {
+  color: #667eea;
+  font-weight: 600;
+}
+
+.message-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.message-sender {
+  font-size: 12px;
+  font-weight: 600;
+  color: #333;
+}

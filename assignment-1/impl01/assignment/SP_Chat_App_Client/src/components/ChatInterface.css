@@ -1,0 +1,91 @@
+.chat-interface {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f5f5f5;
+}
+
+.header {
+  background: #667eea;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header h2 {
+  font-size: 20px;
+  margin: 0;
+}
+
+.logout-button {
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid white;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.logout-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.main-content {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 300px;
+  background: white;
+  border-right: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+}
+
+.tabs button {
+  flex: 1;
+  padding: 15px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: #666;
+  transition: all 0.2s;
+}
+
+.tabs button.active {
+  color: #667eea;
+  border-bottom: 2px solid #667eea;
+}
+
+.tabs button:hover {
+  background: #f5f5f5;
+}
+
+.chat-area {
+  flex: 1;
+  background: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.no-chat-selected {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: #999;
+  font-size: 16px;
+}

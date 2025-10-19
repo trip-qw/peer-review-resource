@@ -1,0 +1,21 @@
+
+FROM node:20-bookworm-slim
+
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    strace ltrace inotify-tools iproute2 net-tools procps curl ca-certificates \
+ && rm -rf /var/lib/apt/lists/*
+
+RUN useradd -ms /bin/bash auditor
+USER auditor
+WORKDIR /home/auditor/app
+
+
+COPY --chown=auditor:auditor package*.json ./
+COPY --chown=auditor:auditor .env .env
+COPY --chown=auditor:auditor src ./src
+COPY --chown=auditor:auditor config.js ./config.js
+
+RUN npm ci --ignore-scripts || npm install --ignore-scripts
+
+ENTRYPOINT ["/bin/bash"]

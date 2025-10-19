@@ -1,0 +1,163 @@
+========================================
+   SOCP Chat Server Initializing
+========================================
+Server ID: c39a24b8-e6cc-4faa-a096-0e194c25e81e
+Port: 12345
+----------------------------------------
+Generating RSA-4096 key pair (this may take a moment)...
+✓ Generated RSA-4096 key pair
+Public Key (first 64 chars):
+-----BEGIN PUBLIC KEY-----
+MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICC...
+[Database] Connection error: MongoServerSelectionError: connect ECONNREFUSED ::1:27017, connect ECONNREFUSED 127.0.0.1:27017
+    at Topology.selectServer (/home/auditor/app/node_modules/mongodb/lib/sdam/topology.js:327:38)
+    at async Topology._connect (/home/auditor/app/node_modules/mongodb/lib/sdam/topology.js:200:28)
+    at async Topology.connect (/home/auditor/app/node_modules/mongodb/lib/sdam/topology.js:152:13)
+    at async topologyConnect (/home/auditor/app/node_modules/mongodb/lib/mongo_client.js:264:17)
+    at async MongoClient._connect (/home/auditor/app/node_modules/mongodb/lib/mongo_client.js:277:13)
+    at async MongoClient.connect (/home/auditor/app/node_modules/mongodb/lib/mongo_client.js:202:13)
+    at async Database.connect (/home/auditor/app/src/database/database.js:13:7)
+    at async SOCPServer.initialize (/home/auditor/app/src/server.js:42:5)
+    at async /home/auditor/app/src/server.js:422:3 {
+  errorLabelSet: Set(0) {},
+  reason: TopologyDescription {
+    type: 'Unknown',
+    servers: Map(1) { 'localhost:27017' => [ServerDescription] },
+    stale: false,
+    compatible: true,
+    heartbeatFrequencyMS: 10000,
+    localThresholdMS: 15,
+    setName: null,
+    maxElectionId: null,
+    maxSetVersion: null,
+    commonWireVersion: 0,
+    logicalSessionTimeoutMinutes: null
+  },
+  code: undefined,
+  [cause]: MongoNetworkError: connect ECONNREFUSED ::1:27017, connect ECONNREFUSED 127.0.0.1:27017
+      at Socket.<anonymous> (/home/auditor/app/node_modules/mongodb/lib/cmap/connect.js:286:44)
+      at Object.onceWrapper (node:events:639:26)
+      at Socket.emit (node:events:524:28)
+      at emitErrorNT (node:internal/streams/destroy:169:8)
+      at emitErrorCloseNT (node:internal/streams/destroy:128:3)
+      at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+    errorLabelSet: Set(1) { 'ResetPool' },
+    beforeHandshake: false,
+    [cause]: AggregateError [ECONNREFUSED]: 
+        at internalConnectMultiple (node:net:1122:18)
+        at afterConnectMultiple (node:net:1689:7) {
+      code: 'ECONNREFUSED',
+      [errors]: [Array]
+    }
+  }
+}
+node:internal/process/promises:391
+    triggerUncaughtException(err, true /* fromPromise */);
+    ^
+
+MongoServerSelectionError: connect ECONNREFUSED ::1:27017, connect ECONNREFUSED 127.0.0.1:27017
+    at Topology.selectServer (/home/auditor/app/node_modules/mongodb/lib/sdam/topology.js:327:38)
+    at async Topology._connect (/home/auditor/app/node_modules/mongodb/lib/sdam/topology.js:200:28)
+    at async Topology.connect (/home/auditor/app/node_modules/mongodb/lib/sdam/topology.js:152:13)
+    at async topologyConnect (/home/auditor/app/node_modules/mongodb/lib/mongo_client.js:264:17)
+    at async MongoClient._connect (/home/auditor/app/node_modules/mongodb/lib/mongo_client.js:277:13)
+    at async MongoClient.connect (/home/auditor/app/node_modules/mongodb/lib/mongo_client.js:202:13)
+    at async Database.connect (/home/auditor/app/src/database/database.js:13:7)
+    at async SOCPServer.initialize (/home/auditor/app/src/server.js:42:5)
+    at async /home/auditor/app/src/server.js:422:3 {
+  errorLabelSet: Set(0) {},
+  reason: TopologyDescription {
+    type: 'Unknown',
+    servers: Map(1) {
+      'localhost:27017' => ServerDescription {
+        address: 'localhost:27017',
+        type: 'Unknown',
+        hosts: [],
+        passives: [],
+        arbiters: [],
+        tags: {},
+        minWireVersion: 0,
+        maxWireVersion: 0,
+        roundTripTime: -1,
+        minRoundTripTime: 0,
+        lastUpdateTime: 15950562,
+        lastWriteDate: 0,
+        error: MongoNetworkError: connect ECONNREFUSED ::1:27017, connect ECONNREFUSED 127.0.0.1:27017
+            at Socket.<anonymous> (/home/auditor/app/node_modules/mongodb/lib/cmap/connect.js:286:44)
+            at Object.onceWrapper (node:events:639:26)
+            at Socket.emit (node:events:524:28)
+            at emitErrorNT (node:internal/streams/destroy:169:8)
+            at emitErrorCloseNT (node:internal/streams/destroy:128:3)
+            at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+          errorLabelSet: Set(1) { 'ResetPool' },
+          beforeHandshake: false,
+          [cause]: AggregateError [ECONNREFUSED]: 
+              at internalConnectMultiple (node:net:1122:18)
+              at afterConnectMultiple (node:net:1689:7) {
+            code: 'ECONNREFUSED',
+            [errors]: [Array]
+          }
+        },
+        topologyVersion: null,
+        setName: null,
+        setVersion: null,
+        electionId: null,
+        logicalSessionTimeoutMinutes: null,
+        maxMessageSizeBytes: null,
+        maxWriteBatchSize: null,
+        maxBsonObjectSize: null,
+        primary: null,
+        me: null,
+        '$clusterTime': null,
+        iscryptd: false
+      }
+    },
+    stale: false,
+    compatible: true,
+    heartbeatFrequencyMS: 10000,
+    localThresholdMS: 15,
+    setName: null,
+    maxElectionId: null,
+    maxSetVersion: null,
+    commonWireVersion: 0,
+    logicalSessionTimeoutMinutes: null
+  },
+  code: undefined,
+  [cause]: MongoNetworkError: connect ECONNREFUSED ::1:27017, connect ECONNREFUSED 127.0.0.1:27017
+      at Socket.<anonymous> (/home/auditor/app/node_modules/mongodb/lib/cmap/connect.js:286:44)
+      at Object.onceWrapper (node:events:639:26)
+      at Socket.emit (node:events:524:28)
+      at emitErrorNT (node:internal/streams/destroy:169:8)
+      at emitErrorCloseNT (node:internal/streams/destroy:128:3)
+      at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+    errorLabelSet: Set(1) { 'ResetPool' },
+    beforeHandshake: false,
+    [cause]: AggregateError [ECONNREFUSED]: 
+        at internalConnectMultiple (node:net:1122:18)
+        at afterConnectMultiple (node:net:1689:7) {
+      code: 'ECONNREFUSED',
+      [errors]: [
+        Error: connect ECONNREFUSED ::1:27017
+            at createConnectionError (node:net:1652:14)
+            at afterConnectMultiple (node:net:1682:16) {
+          errno: -111,
+          code: 'ECONNREFUSED',
+          syscall: 'connect',
+          address: '::1',
+          port: 27017
+        },
+        Error: connect ECONNREFUSED 127.0.0.1:27017
+            at createConnectionError (node:net:1652:14)
+            at afterConnectMultiple (node:net:1682:16) {
+          errno: -111,
+          code: 'ECONNREFUSED',
+          syscall: 'connect',
+          address: '127.0.0.1',
+          port: 27017
+        }
+      ]
+    }
+  }
+}
+
+Node.js v20.19.5

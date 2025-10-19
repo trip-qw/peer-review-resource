@@ -1,0 +1,4 @@
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+auditor      1  0.0  0.0   2584  1536 pts/0    Ss   03:44   0:00 /bin/sh
+auditor     11  0.0  0.0   2860  1280 pts/0    S    03:46   0:00 inotifywait -m -r -e create,modify,delete,attrib /tmp /home/auditor/app -o /home/auditor/out/inotify.log
+auditor     31  0.0  0.0   8096  4096 pts/0    R+   03:49   0:00 ps auxwwwf
