@@ -1,0 +1,23 @@
+# ===== Dynamic Audit Container for Python Project =====
+FROM python:3.11-slim-bookworm
+
+LABEL maintainer="auditor@securelab" purpose="dynamic-audit"
+
+# Install minimal tools
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    strace inotify-tools iproute2 net-tools && \
+    rm -rf /var/lib/apt/lists/*
+
+# Create a low-privilege user
+RUN useradd -ms /bin/bash auditor
+WORKDIR /home/auditor/app
+USER auditor
+
+# Copy project files
+COPY --chown=auditor:auditor . .
+
+# Install dependencies (ignore scripts)
+RUN pip install --no-cache-dir -r requirements.txt || true
+
+# Default entrypoint
+CMD ["python3", "server.py"]

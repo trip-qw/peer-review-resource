@@ -1,0 +1,4 @@
+  File "/home/auditor/app/server.py", line 11
+    host = os.getenv("SOCP_HOST", "0.0.0.0")
+    ^
+IndentationError: expected an indented block after function definition on line 10

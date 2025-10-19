@@ -1,0 +1,9 @@
+
+websockets
+cryptography
+orjson
+pydantic
+pyyaml
+aiosqlite
+click
+pytest
